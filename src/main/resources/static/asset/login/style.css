@@ -1,0 +1,120 @@
+*{padding:0px;margin:0px;}
+body {font-family: 'microsoft yahei', Arial, Helvetica, sans-serif;color: #313131;background-color: #f6f6f6; font-size:15px;padding:0px;margin:0px; position:relative;}
+a{color:#313131;}
+a:hover{color:#313131; text-decoration:none;}
+p{color:#313131;}
+/***==margin==***/
+.mar0{margin:0px  !important;}
+.marB5{margin:0px 0px  5px 0px !important;}
+.marB10{margin:0px 0px  10px 0px !important;}
+.marB15{margin:0px 0px  15px 0px !important;}
+.marB20{margin:0px 0px 20px 0px !important;}
+.marB25{margin:0px 0px 25px 0px !important;}
+.marB30{margin:0px 0px 30px 0px !important;}
+.marT5{margin-top:5px !important;}
+.marT10{margin-top:10px !important;}
+.marT15{margin-top:15px !important;}
+.marT20{margin-top:20px !important;}
+.marT25{margin-top:25px !important;}
+.marT30{margin-top:30px !important;}
+.marL5{margin-left:5px !important;}
+.marL10{margin-left:10px !important;}
+.marL15{margin-left:15px !important;}
+.marL20{margin-left:20px !important;}
+.marL25{margin-left:25px !important;}
+.marL30{margin-left:30px !important;}
+.marR5{margin-right:5px !important;}
+.marR10{margin-right:10px !important;}
+.marR15{margin-right:15px !important;}
+.marR20{margin-right:20px !important;}
+.marr25{margin-right:25px !important;}
+.marR30{margin-right:30px !important;}
+.marLR5{margin:0px 5px !important;}
+.marLR10{margin:0px 10px !important;}
+.marLR15{margin:0px 15px !important;}
+.marLR20{margin:0px 20px !important;}
+.marLR25{margin:0px 25px !important;}
+.marLR30{margin:0px 30px !important;}
+.marTB5{margin:5px 0px !important;}
+.marTB10{margin:10px 0px !important;}
+.marTB15{margin:15px 0px !important;}
+.marTB20{margin:20px 0px !important;}
+.marTB25{margin:25px 0px !important;}
+.marTB30{margin:30px 0px !important;}
+/***==padding==***/
+.pad0{padding:0px  !important;}
+.pad5{padding:5px  !important;}
+.pad10{padding:10px  !important;}
+.pad15{padding:15px  !important;}
+.padB5{padding:0px 0px  5px 0px !important;}
+.padB10{padding:0px 0px  10px 0px !important;}
+.padB15{padding:0px 0px  15px 0px !important;}
+.padB20{padding:0px 0px 20px 0px !important;}
+.padB25{padding:0px 0px 25px 0px !important;}
+.padB30{padding:0px 0px 30px 0px !important;}
+.padT5{padding-top:5px !important;}
+.padT10{padding-top:10px !important;}
+.padT15{padding-top:15px !important;}
+.padT20{padding-top:20px !important;}
+.padT25{padding-top:25px !important;}
+.padT30{padding-top:30px !important;}
+.padL5{padding-left:5px !important;}
+.padL10{padding-left:10px !important;}
+.padL15{padding-left:15px !important;}
+.padL20{padding-left:20px !important;}
+.padL25{padding-left:25px !important;}
+.padL30{padding-left:30px !important;}
+.padR5{padding-right:5px !important;}
+.padR10{padding-right:10px !important;}
+.padR15{padding-right:15px !important;}
+.padR20{padding-right:20px !important;}
+.padr25{padding-right:25px !important;}
+.padR30{padding-right:30px !important;}
+.padLR5{padding:0px 5px !important;}
+.padLR10{padding:0px 10px !important;}
+.padLR15{padding:0px 15px !important;}
+.padLR20{padding:0px 20px !important;}
+.padLR25{padding:0px 25px !important;}
+.padLR30{padding:0px 30px !important;}
+.padTB5{padding:5px 0px !important;}
+.padTB10{padding:10px 0px !important;}
+.padTB15{padding:15px 0px !important;}
+.padTB20{padding:20px 0px !important;}
+.padTB25{padding:25px 0px !important;}
+.padTB30{padding:30px 0px !important;}
+/***==color==***/
+.color333{color:#333 !important;}
+.color666{color:#666 !important;}
+.color999{color:#999 !important;}
+.colorBlue{color:#0873bd !important;}
+.colorRed{color:#fc4023 !important;}
+.colorWhite{color:#fff;}
+/***==background==***/
+.bgGray{ background:#f6f6f6 !important;}
+.bgWhite{ background:#fff !important;}
+.bgBlue{ background:#0873bd !important;}
+.bg333{ background:#333 !important;}
+.bgGreen{ background:#04ae0f !important;}
+/***==border==***/
+.borLgray{border-left:1px solid #e6e6e6;}
+.borRgray{border-right:1px solid #e6e6e6;}
+.borTgray{border-top:1px solid #e6e6e6;}
+.borBgray{border-bottom:1px solid #e6e6e6;}
+.borRBgray{border-right:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;}
+.ellipsis{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.zInput{width:100%;font-family: 'microsoft yahei', Arial, Helvetica, sans-serif; font-size:14px; height:45px;border:none; border-top-right-radius:4px; border-bottom-right-radius:4px;}
+.widthFluid{width:100% !important;}
+/***==login html css==***/
+.loginbox{ background:url(../img/loginbg.jpg) no-repeat top center; height:600px; position:absolute;top:50%;margin-top:-300px; width:100%;}
+.logincont{height:600px;width:350px;}
+.logingcenter{width:1200px; height:600px;}
+.inputbox{ background:#fff; height:400px; border-radius:10px; padding:50px 30px 0px 30px; box-sizing:border-box;}
+.logo{width:40px; height:40px;}
+.logo img{width:40px; height:40px; border-radius:40px;}
+.loginname{font-size:25px; font-weight:bold; line-height:40px; height:40px; padding:0px 10px; color:#fff;}
+.logininputtext{width:90px; height:38px; line-height:38px; text-align:right;}
+.yzm img{width:80px; height:38px;}
+.sxyzm{ height:38px; line-height:38px; padding:0px 5px; cursor:pointer;}
+.sxyzm:hover{color:#000;}
+.logintitle{padding:60px 0px 20px 0px;}
+.yhdl{ padding:0px 0px 30px 0px; font-size:20px; font-weight:bold; text-align:center; color:#212121;}
