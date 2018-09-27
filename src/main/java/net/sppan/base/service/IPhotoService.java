@@ -8,8 +8,8 @@ import net.sppan.base.service.support.IBaseService;
  * 角色服务类
  * </p>
  *
- * @author SPPan
- * @since 2016-12-28
+ * @author yxu
+ * @since 2018-09-19
  */
 public interface IPhotoService extends IBaseService<Photo,Integer> {
 

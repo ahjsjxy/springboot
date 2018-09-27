@@ -78,7 +78,14 @@ public class ResourceController extends BaseController {
 		}
 		return JsonResult.success();
 	}
-	
+
+	/**
+	 * 删除资源 restful接口规范
+	 * @author yxu
+	 * @param id
+	 * @param map
+     * @return
+     */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult delete(@PathVariable Integer id,ModelMap map) {

@@ -1,0 +1,30 @@
+{
+  "groups": [{
+    "name": "serverInfo",
+    "type": "net.sppan.base.config.ServerInfoProperties",
+    "sourceType": "net.sppan.base.config.ServerInfoProperties"
+  }],
+  "properties": [
+    {
+      "name": "serverInfo.photo-detail-url",
+      "type": "java.lang.String",
+      "sourceType": "net.sppan.base.config.ServerInfoProperties"
+    },
+    {
+      "name": "serverInfo.photo-detail-url",
+      "type": "java.lang.String",
+      "sourceType": "net.sppan.base.config.ServerInfoProperties"
+    },
+    {
+      "name": "serverInfo.upload-photo-url",
+      "type": "java.lang.String",
+      "sourceType": "net.sppan.base.config.ServerInfoProperties"
+    },
+    {
+      "name": "serverInfo.upload-photo-url",
+      "type": "java.lang.String",
+      "sourceType": "net.sppan.base.config.ServerInfoProperties"
+    }
+  ],
+  "hints": []
+}

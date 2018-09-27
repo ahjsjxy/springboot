@@ -1,12 +1,10 @@
 package net.sppan.base.controller.function;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import net.sppan.base.common.Constats;
-import net.sppan.base.common.JsonResult;
 import net.sppan.base.common.utils.MD5Utils;
 import net.sppan.base.common.utils.UZipFile;
+import net.sppan.base.config.ServerInfoProperties;
 import net.sppan.base.controller.BaseController;
 import net.sppan.base.entity.Photo;
 import net.sppan.base.entity.User;
@@ -18,7 +16,6 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,18 +23,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.shiro.session.Session;
 import java.io.File;
 import java.io.IOException;
-import java.security.Principal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,20 +41,22 @@ public class PhotoController extends BaseController {
 
     @Autowired
     private IPhotoService photoService;
-//    @Autowired
-//    private JdbcTemplate _jd;
-
+    @Autowired
+    private ServerInfoProperties sInfo;
     /**
      * 返回文件上传视图
      * @author yxu
      * @return
      */
     @RequestMapping(value={"/","/index"},method= RequestMethod.GET)
-    public String photo(){
+    public String photo(Model model){
+        String detailUrl = sInfo.getPhotoDetailUrl();
+        model.addAttribute("detailUrl",detailUrl);
         return "admin/photo/photo";
     }
 
     /**
+     * @author yxu
      * 填充bootstrap表格内容，可添加查询条件
      * @return
      */
@@ -148,13 +142,10 @@ public class PhotoController extends BaseController {
                               HttpServletResponse response, HttpServletRequest request)
             throws IOException {
         response.setCharacterEncoding("UTF-8");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String data = "";
         JSONObject jsonObject = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         try {
             Subject subject = SecurityUtils.getSubject();
-            Object principal = subject.getPrincipal();
             Photo photo = new Photo();
             photo.setOriginName(originName);
             photo.setFileSize(l_size);
@@ -166,20 +157,9 @@ public class PhotoController extends BaseController {
             }else{
                 photo.setDescription("");
             }
-            String uploadTime = sdf.format(new Date());
             User user = (User) subject.getPrincipal();
             photo.setUploadMan(user.getUserName());
             photoService.saveOrUpdate(photo);
-
-//            String sql = "insert into tb_photo(upload_man,origin_name,real_name,upload_time,file_size,description,del_flag)values('" +  user.getUserName() + "','" +
-//                    originName + "','" + realName + "','" + uploadTime + "','" + l_size + "','" + description + "','0')";
-//            _jd.execute(sql);
-        //    photoService.save(photo);
-           /* String scsj = sdf.format(new Date());
-            String sql = "insert into tb_photo(upload_man,origin_name,real_name,upload_time,file_size,description,del_flag)values('" + principal + "','" +
-                    originName + "','" + realName + "','" + photo.getUploadTime + "','" + l_size + "'," + description + ",'0')";
-            jdbTemplate.execute(sql);*/
-
         } catch (Exception e) {
             e.printStackTrace();
             jsonObject.put("message","上传失败");
@@ -191,7 +171,7 @@ public class PhotoController extends BaseController {
         response.getWriter().print(jsonArray.toString());
 
     }
-
+    
     /**
      * 文件上传点击详情进行全景展示
      * @author yxu
@@ -206,17 +186,12 @@ public class PhotoController extends BaseController {
         String idL = request.getParameter("id");
         String id = "";
         try{
-//            String sql = "select * from tb_photo where id="+idL;
-//            List list = _jd.queryForList(sql);
-//            if(list.size()>0){
-//                HashMap map = (HashMap) list.get(0);
-//                String idp = (String) map.get("real_name");
-//                id = idp.substring(0,idp.indexOf("."));
-//            }
             Photo photo = photoService.find(Integer.parseInt(idL));
             String realName = photo.getRealName();
             id = realName.substring(0,realName.indexOf("."));
+            String hostStr = sInfo.getUploadPhotoUrl();
             model.addAttribute("ids",id);
+            model.addAttribute("hostStr",hostStr);
         }catch (Exception e){
             e.printStackTrace();
         }

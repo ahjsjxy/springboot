@@ -179,8 +179,9 @@
     });
 
     function detail(id){
-
-            window.location.href = "/base/admin/photo/detail?id="+id;
+         window.location.href ="${detailUrl}"+id;
+    //        window.location.href = "/base/admin/photo/detail?id="+id;
+//        window.location.href = "/admin/photo/detail?id="+id;
             //	window.location.href = "addmodel?tag_id=" + id;
 
 
